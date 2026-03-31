@@ -1,10 +1,10 @@
-import headerLogo from "../assets/logo.png";
+// import headerLogo from "../assets/logo.png";
 import "./Header.css";
 
 function Header() {
   return (
     <div className="header">
-      <img className="header__logo" src={headerLogo} alt="App Logo" />
+      <img className="header__logo" alt="App Logo" />
       <h1 className="header__title">Hello Mise!</h1>
     </div>
   );
