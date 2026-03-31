@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className="header">
       <img className="header__logo" src={headerLogo} alt="App Logo" />
-      <h1 className="header__title">Hello Template!</h1>
+      <h1 className="header__title">Hello Mise!</h1>
     </div>
   );
 }
