@@ -1,22 +1,23 @@
-@font-face {
-  src: url("../assets/yellowtail-regular.woff");
-  font-family: "Yellowtail";
-}
 
 .header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 15px;
 }
 
 .header__logo {
-  width: 64px;
-  height: 42px;
+  line-height: 120%;
 }
 
-.header__title {
-  font-family: "Yellowtail";
-  font-size: 40px;
+.header__button {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
   margin-left: 12px;
+  background-color: #2eb0e8;
+  border: none;
+  color: white;
+  border-radius: 18px;
+  width: 126px;
+  height: 48px;
 }
