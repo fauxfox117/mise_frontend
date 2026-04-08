@@ -1,3 +1,7 @@
+@font-face {
+  src: url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+  font-family: "DM Sans";
+}
 
 .header {
   display: flex;
@@ -20,4 +24,28 @@
   border-radius: 18px;
   width: 126px;
   height: 48px;
+}
+
+.header__button-link {
+  text-decoration: none;
+  color: rgba(0, 0, 0);
+  margin: 0 27px 0 0;
+}
+
+.header__sign-in-btn {
+  background-color: transparent;
+  border: none;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.header__nav-links {
+  font-family:
+    DM Sans,
+    sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 14px;
+  font-weight: 900;
 }

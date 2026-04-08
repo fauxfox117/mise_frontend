@@ -1,5 +1,5 @@
-import "./ModalWithForm.css";
-import Modal from "./Modal.js";
+import "../ModalWithForm/ModalWithForm.css";
+import Modal from "../Modal/Modal.jsx";
 
 function ModalWithForm({
   children,
