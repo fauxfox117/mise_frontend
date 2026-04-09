@@ -1,12 +1,44 @@
 import "./Main.css";
 import Header from "../Header/Header";
+import IpadImage from "../../assets/Ipad.png";
+import ToastLogo from "../../assets/toast-logo_color.png";
+import ScoundrelLogo from "../../assets/Scoundrel+email+images-2.webp";
+import ResyOSLogo from "../../assets/Resy-Box-Logo-Red.svg";
 
 function Main() {
   return (
     <div className="container">
-      <section className="main">
-        <h1 className="main-text">Table updates in real time.</h1>
-      </section>
+      <div className="main__header">
+        <section className="main">
+          <h1 className="main-text">Table updates in real time.</h1>
+        </section>
+        <section className="main__image-section">
+          <img
+            className="main__image"
+            src={IpadImage}
+            alt="Illustration of real-time updates"
+          />
+        </section>
+        <section className="main__logo-cloud-section">
+          <div className="main__logo-cloud-section">
+            <img
+              className="main__logo-cloud"
+              src={ToastLogo}
+              alt="Toast POS logo"
+            ></img>
+            <img
+              className="main__logo-cloud"
+              src={ScoundrelLogo}
+              alt="Scoundrel logo"
+            ></img>
+            <img
+              className="main__logo-cloud"
+              src={ResyOSLogo}
+              alt="Resy OS logo"
+            ></img>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

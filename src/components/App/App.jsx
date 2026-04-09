@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import BenefitsSection from "../BenefitsSection/BeneftsSection.jsx";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal.jsx";
 
@@ -42,6 +43,7 @@ function App() {
     <>
       <Header onLoginClick={() => setActiveModal("sign-in")} />
       <Main />
+      <BenefitsSection />
       <Footer />
       <LoginModal
         isOpen={activeModal === "sign-in"}

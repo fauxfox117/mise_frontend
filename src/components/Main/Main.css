@@ -7,8 +7,43 @@
   font-family: "Crimson Text";
   display: flex;
   justify-content: space-around;
+  justify-content: center;
 }
 
 .main-text {
   font-size: 128px;
+}
+
+.main__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.main__image-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #2eb0e8;
+  width: 1200px;
+  height: 362px;
+  margin-top: 60px;
+  border-radius: 20px;
+}
+
+.main__logo-cloud-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 45px 0 45px 0;
+}
+
+.main__logo-cloud {
+  width: 154px;
+  height: 84px;
+  overflow: hidden;
+  object-fit: contain;
+  filter: invert(0.9);
 }
