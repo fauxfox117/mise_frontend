@@ -2,10 +2,24 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.5);
+}
+
+.benefits__title {
+  font-family:
+    Roboto Mono,
+    sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #485c11;
+  margin: 40px 0 24px 0;
+  position: relative;
+  left: -560px;
 }
 
 .benefits__list {
   display: flex;
   flex-direction: row;
   list-style: none;
+  justify-content: space-around;
 }

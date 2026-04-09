@@ -20,6 +20,7 @@ function Main() {
           />
         </section>
         <section className="main__logo-cloud-section">
+          <h2 className="main__logo-cloud-title">Trusted by:</h2>
           <div className="main__logo-cloud-section">
             <img
               className="main__logo-cloud"

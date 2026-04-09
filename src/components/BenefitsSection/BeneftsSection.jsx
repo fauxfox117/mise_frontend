@@ -3,7 +3,13 @@ import "./BenefitsSection.css";
 function BenefitsSection() {
   return (
     <section className="benefits">
-      <h2 className="benefits__title">Why choose Mise?</h2>
+      <h3 className="benefits__title">Benefits:</h3>
+      <div className="benefits__sub-section">
+        <h2 className="benefits__main-title">We've cracked the code</h2>
+        <p className="benefits__blurb">
+          Mise provides real-time updates, automatically, no secondary steps.
+        </p>
+      </div>
       <ul className="benefits__list">
         <li className="benefits__item">
           <h3 className="benefits__item-title">Real-Time Updates</h3>

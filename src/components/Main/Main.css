@@ -33,6 +33,16 @@
   border-radius: 20px;
 }
 
+.main__logo-cloud-title {
+  font-family:
+    DM Sans,
+    sans-serif;
+  font-size: 15px;
+  font-weight: 200;
+  position: relative;
+  left: -210px;
+}
+
 .main__logo-cloud-section {
   display: flex;
   flex-direction: row;
@@ -46,4 +56,5 @@
   overflow: hidden;
   object-fit: contain;
   filter: invert(0.9);
+  padding: 0 40px;
 }
