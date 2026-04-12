@@ -1,8 +1,8 @@
 import "./BenefitsSection.css";
 
-function BenefitsSection() {
+function BenefitsSection({ benefitsRef }) {
   return (
-    <section className="benefits">
+    <section className="benefits" ref={benefitsRef}>
       <h3 className="benefits__title">Benefits:</h3>
       <div className="benefits__sub-section">
         <h2 className="benefits__main-title">We've cracked the code</h2>

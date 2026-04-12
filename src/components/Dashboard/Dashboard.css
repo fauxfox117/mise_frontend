@@ -1,0 +1,160 @@
+.dashboard {
+  min-height: calc(100vh - 120px);
+  padding: 64px 40px;
+}
+
+.dashboard__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.dashboard__eyebrow {
+  margin: 0 0 18px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  font-weight: 300;
+  color: #485c11;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dashboard__title {
+  margin: 0 0 16px;
+  font-family: "Crimson Text", serif;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 0.95;
+  color: #111111;
+}
+
+.dashboard__description {
+  margin: 0 0 36px;
+  max-width: 640px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(17, 17, 17, 0.75);
+}
+
+.dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.dashboard__stat-card {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 20px;
+  padding: 20px;
+  background: #ffffff;
+}
+
+.dashboard__stat-label {
+  margin: 0 0 8px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  color: rgba(17, 17, 17, 0.62);
+}
+
+.dashboard__stat-value {
+  margin: 0;
+  font-family: "Crimson Text", serif;
+  font-size: 40px;
+  line-height: 1;
+  color: #111111;
+}
+
+.dashboard__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 20px;
+}
+
+.dashboard__panel {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 24px;
+  padding: 24px;
+  background: #ffffff;
+  text-align: left;
+}
+
+.dashboard__panel-title {
+  margin: 0 0 10px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.dashboard__panel-copy {
+  margin: 0 0 20px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(17, 17, 17, 0.72);
+}
+
+.dashboard__upload-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.dashboard__upload-input {
+  display: block;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.dashboard__upload-state {
+  margin: 0 0 18px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  color: rgba(17, 17, 17, 0.72);
+}
+
+.dashboard__import-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: #2eb0e8;
+  color: #ffffff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dashboard__list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.dashboard__list-item {
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(17, 17, 17, 0.72);
+}
+
+@media (max-width: 960px) {
+  .dashboard {
+    padding: 40px 24px;
+  }
+
+  .dashboard__title {
+    font-size: 44px;
+  }
+
+  .dashboard__stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard__grid {
+    grid-template-columns: 1fr;
+  }
+}
