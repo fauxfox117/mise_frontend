@@ -1,8 +1,21 @@
-# React + Vite
+# Mise Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Local Setup
 
-Currently, two official plugins are available:
+1. Install dependencies:
+   `npm install`
+2. Create env file:
+   `cp .env.example .env`
+3. Ensure backend runs on `http://localhost:3001` (or update `VITE_API_URL` in `.env`).
+4. Start frontend:
+   `npm run dev`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Auth Connection
+
+- Sign up and sign in call the backend API.
+- JWT is stored in local storage as `jwt`.
+- App loads the current user from `GET /users/me` on refresh.
+- If your API uses different paths, set these in `.env`:
+  - `VITE_AUTH_SIGNUP_PATH`
+  - `VITE_AUTH_SIGNIN_PATH`
+  - `VITE_AUTH_ME_PATH`

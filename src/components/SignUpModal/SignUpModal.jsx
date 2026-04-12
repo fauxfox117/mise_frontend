@@ -1,57 +1,62 @@
-// Styles
+import { useState } from "react";
+import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
+import useForm from "../../hooks/hooks.jsx";
 import "../LoginModal/LoginModal.css";
 
-// React
-import { useState } from "react";
-
-// Components
-import ModalWithForm from "../ModalWithForm/ModalWithForm.jsx";
-
-// Hooks
-import useForm from "../../hooks/hooks.jsx";
-
-function LoginModal({
+function SignUpModal({
   isOpen,
   onClose,
-  onSignIn,
+  onSignUp,
   onSwitchModal,
   isFormValid = true,
 }) {
   const [error, setError] = useState("");
   const { values, handleChange, resetForm } = useForm({
+    name: "",
     email: "",
     password: "",
+    avatar: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError("");
-    onSignIn(values)
+
+    onSignUp(values)
       .then(() => {
         resetForm();
       })
       .catch((err) => {
-        setError(
-          err?.message ||
-            (typeof err === "string"
-              ? err
-              : "An error occurred during sign in"),
-        );
+        setError(err?.message || "An error occurred during sign up");
       });
   };
 
   return (
     <ModalWithForm
-      name="signin"
+      name="signup"
       isOpen={isOpen}
       onClose={onClose}
-      title="Sign In"
-      buttonText="Sign In"
+      title="Sign Up"
+      buttonText="Sign Up"
       onSubmit={handleSubmit}
       isFormValid={isFormValid}
-      secondaryButtonText="or Sign Up"
+      secondaryButtonText="or Sign In"
       onSecondaryButtonClick={onSwitchModal}
     >
+      <label className="modal__label">
+        Name{" "}
+        <input
+          type="text"
+          className="modal__input"
+          name="name"
+          placeholder="Name"
+          value={values.name}
+          onChange={handleChange}
+          minLength={2}
+          maxLength={30}
+          required
+        />
+      </label>
       <label className="modal__label">
         Email{" "}
         <input
@@ -72,10 +77,23 @@ function LoginModal({
           className="modal__input"
           name="password"
           placeholder="Password"
-          autoComplete="current-password"
+          autoComplete="new-password"
           value={values.password}
           onChange={handleChange}
+          minLength={6}
           required
+        />
+      </label>
+      <label className="modal__label">
+        Avatar URL{" "}
+        <input
+          type="url"
+          className="modal__input"
+          name="avatar"
+          placeholder="https://example.com/avatar.jpg (optional)"
+          autoComplete="url"
+          value={values.avatar}
+          onChange={handleChange}
         />
       </label>
       {error && <p className="modal__error">{error}</p>}
@@ -83,4 +101,4 @@ function LoginModal({
   );
 }
 
-export default LoginModal;
+export default SignUpModal;

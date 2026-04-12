@@ -1,18 +1,57 @@
-const MOCK_USER = { id: "1", email: "user@example.com", name: "Mise User" };
+const BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+const SIGNUP_PATH = import.meta.env.VITE_AUTH_SIGNUP_PATH || "/signup";
+const SIGNIN_PATH = import.meta.env.VITE_AUTH_SIGNIN_PATH || "/signin";
+const CURRENT_USER_PATH = import.meta.env.VITE_AUTH_ME_PATH || "/users/me";
 
-// Frontend-safe mock auth service. Swap these with real API calls when backend is ready.
-export const signin = ({ email }) => {
-  return Promise.resolve({ token: "mock-token", email });
+const processResponse = async (res) => {
+  const data = await res.json().catch(() => ({}));
+
+  if (!res.ok) {
+    throw new Error(data.message || "Request failed");
+  }
+
+  return data;
+};
+
+export const signup = ({ name, email, password, avatar }) => {
+  const payload = {
+    name,
+    email,
+    password,
+    ...(avatar?.trim() ? { avatar: avatar.trim() } : {}),
+  };
+
+  return fetch(`${BASE_URL}${SIGNUP_PATH}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  }).then(processResponse);
+};
+
+export const signin = ({ email, password }) => {
+  return fetch(`${BASE_URL}${SIGNIN_PATH}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }),
+  }).then(processResponse);
 };
 
 export const getCurrentUser = (token) => {
   if (!token) {
-    return Promise.reject("No auth token found");
+    return Promise.reject(new Error("No auth token found"));
   }
 
-  return Promise.resolve(MOCK_USER);
+  return fetch(`${BASE_URL}${CURRENT_USER_PATH}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  }).then(processResponse);
 };
 
-export const signout = () => {
-  return Promise.resolve();
-};
+export const signout = () => Promise.resolve();

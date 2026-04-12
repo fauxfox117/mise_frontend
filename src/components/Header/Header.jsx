@@ -3,6 +3,7 @@ import HeaderLogo from "../../assets/Mise Logo.png";
 
 function Header({
   onLoginClick,
+  onSignUpClick,
   onNavigate,
   isLoggedIn,
   onLogout,
@@ -64,13 +65,22 @@ function Header({
             </button>
           </>
         ) : (
-          <button
-            onClick={onLoginClick}
-            type="button"
-            className="header__button-link header__sign-in-btn"
-          >
-            Log In
-          </button>
+          <>
+            <button
+              onClick={onLoginClick}
+              type="button"
+              className="header__button-link header__sign-in-btn"
+            >
+              Log In
+            </button>
+            <button
+              onClick={onSignUpClick}
+              type="button"
+              className="header__button-link header__create-account-btn"
+            >
+              Create Account
+            </button>
+          </>
         )}
       </div>
       <button

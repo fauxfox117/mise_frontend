@@ -14,10 +14,11 @@ import FeaturesSection from "../FeaturesSection/FeaturesSection.jsx";
 import ConnectSection from "../ConnectSection/ConnectSection.jsx";
 import Footer from "../Footer/Footer";
 import LoginModal from "../LoginModal/LoginModal.jsx";
+import SignUpModal from "../SignUpModal/SignUpModal.jsx";
 import Dashboard from "../Dashboard/Dashboard.jsx";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.jsx";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.jsx";
-import { getCurrentUser, signin, signout } from "../../utils/auth.js";
+import { getCurrentUser, signin, signout, signup } from "../../utils/auth.js";
 
 function App() {
   const [activeModal, setActiveModal] = useState(null);
@@ -94,6 +95,22 @@ function App() {
         setCurrentUser(user);
         setIsLoggedIn(true);
         closeActiveModal();
+        navigate("/dashboard");
+      });
+  };
+
+  const handleSignUp = (data) => {
+    return signup(data)
+      .then(() => signin({ email: data.email, password: data.password }))
+      .then((res) => {
+        localStorage.setItem("jwt", res.token);
+        return getCurrentUser(res.token);
+      })
+      .then((user) => {
+        setCurrentUser(user);
+        setIsLoggedIn(true);
+        closeActiveModal();
+        navigate("/dashboard");
       });
   };
 
@@ -119,6 +136,7 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <Header
         onLoginClick={() => setActiveModal("sign-in")}
+        onSignUpClick={() => setActiveModal("sign-up")}
         onNavigate={handleNavigate}
         isLoggedIn={isLoggedIn}
         onLogout={handleLogout}
@@ -152,6 +170,12 @@ function App() {
         onClose={closeActiveModal}
         onSignIn={handleLogin}
         onSwitchModal={() => setActiveModal("sign-up")}
+      />
+      <SignUpModal
+        isOpen={activeModal === "sign-up"}
+        onClose={closeActiveModal}
+        onSignUp={handleSignUp}
+        onSwitchModal={() => setActiveModal("sign-in")}
       />
     </CurrentUserContext.Provider>
   );

@@ -61,6 +61,17 @@
   cursor: pointer;
 }
 
+.header__create-account-btn {
+  background-color: #2eb0e8;
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  padding: 10px 14px;
+  margin-right: 0;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 .header__nav-links {
   font-family:
     DM Sans,
