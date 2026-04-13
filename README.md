@@ -19,3 +19,12 @@
   - `VITE_AUTH_SIGNUP_PATH`
   - `VITE_AUTH_SIGNIN_PATH`
   - `VITE_AUTH_ME_PATH`
+
+## Realtime Table Status
+
+- Dashboard subscribes to websocket updates for table status changes.
+- Configure these in `.env` when needed:
+  - `VITE_WS_URL`
+  - `VITE_TABLES_STATUS_PATH`
+  - `VITE_TABLE_UPDATE_PATH`
+  - `VITE_TOAST_SYNC_PATH`
