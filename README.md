@@ -19,8 +19,8 @@ Current integration direction:
 
 ## Project Pitch Video
 
-Check out [this video](ADD_LINK_HERE), where I describe my
-project and some challenges I faced while building it.
+Check out [this video](https://vimeo.com/1184207341?share=copy&fl=sv&fe=ci), where I describe my
+project and some challenges I faced while building it.  The beginning of the video got clipped, sorry about that. 
 
 ## Backend Repository
 
