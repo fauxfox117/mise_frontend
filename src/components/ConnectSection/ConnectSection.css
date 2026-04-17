@@ -101,3 +101,27 @@
     font-size: 48px;
   }
 }
+
+@media (max-width: 560px) {
+  .connect {
+    padding: 56px 16px 0;
+  }
+
+  .connect__title {
+    font-size: clamp(36px, 11vw, 44px);
+  }
+
+  .connect__description {
+    font-size: 16px;
+  }
+
+  .connect__form {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .connect__button {
+    width: 100%;
+    justify-content: center;
+  }
+}

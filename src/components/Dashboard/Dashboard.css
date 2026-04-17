@@ -336,3 +336,47 @@
     margin-left: 0;
   }
 }
+
+@media (max-width: 560px) {
+  .dashboard {
+    padding: 28px 16px;
+  }
+
+  .dashboard__title {
+    font-size: clamp(34px, 11vw, 42px);
+  }
+
+  .dashboard__description {
+    font-size: 16px;
+    margin-bottom: 26px;
+  }
+
+  .dashboard__panel {
+    padding: 16px;
+  }
+
+  .dashboard__panel-title {
+    font-size: 22px;
+  }
+
+  .dashboard__import-btn,
+  .dashboard__sync-btn,
+  .dashboard__refresh-floorplan-btn {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  .dashboard__table-actions {
+    gap: 6px;
+  }
+
+  .dashboard__status-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dashboard__floorplan-wrap {
+    border-radius: 10px;
+  }
+}

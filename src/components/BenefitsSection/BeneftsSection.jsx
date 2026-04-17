@@ -1,14 +1,22 @@
 import "./BenefitsSection.css";
+import ScoundrelImage from "../../assets/L1041023-(1).png";
 
 function BenefitsSection({ benefitsRef }) {
   return (
     <section className="benefits" ref={benefitsRef}>
-      <h3 className="benefits__title">Benefits:</h3>
       <div className="benefits__sub-section">
-        <h2 className="benefits__main-title">We've cracked the code</h2>
-        <p className="benefits__blurb">
-          Mise provides real-time updates, automatically, no secondary steps.
-        </p>
+        <div className="benefits__heading">
+          <p className="benefits__title">Benefits</p>
+          <h2 className="benefits__main-title">We've cracked the code</h2>
+          <p className="benefits__blurb">
+            Mise provides real-time updates, automatically, no secondary steps.
+          </p>
+        </div>
+        <img
+          className="benefits__image"
+          src={ScoundrelImage}
+          alt="Scoundrel restaurant"
+        />
       </div>
       <ul className="benefits__list">
         <li className="benefits__item">
