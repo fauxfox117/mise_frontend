@@ -1,5 +1,9 @@
 # Mise Frontend
 
+## Final Project Submission
+
+This repository is submitted as the completed final project deliverable.
+
 ## What This App Is About
 
 Mise is a React-based restaurant operations app that pulls a floor plan from a POS API and updates table status in real time when service events are fired.
