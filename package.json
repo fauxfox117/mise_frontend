@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
-    "postbuild": "rsync -avz --delete dist/ mise-vm:~/mise_backend/frontend/",
+    "postbuild": "rsync -avz --delete dist/ mise-vm:/home/info/frontend/",
     "deploy": "npm run build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
