@@ -51,6 +51,14 @@ function Dashboard() {
     return Array.from(names);
   }, [floorplan.tables]);
 
+  const floorplanLabelMap = useMemo(() => {
+    const map = new Map();
+    (floorplan.tables || []).forEach((table) => {
+      map.set(String(table.tableId), table.label);
+    });
+    return map;
+  }, [floorplan.tables]);
+
   const mergeTableStatuses = useCallback((layoutTables, statusTables) => {
     const statusMap = new Map(
       (statusTables || []).map((item) => [String(item.tableId), item.status]),
@@ -108,53 +116,65 @@ function Dashboard() {
 
     loadFloorplan();
 
-    const socket = createRealtimeSocket(token);
+    let socket = null;
+    let cancelled = false;
 
-    socket.on("table:statuses:snapshot", (snapshot) => {
-      const nextSnapshot = Array.isArray(snapshot) ? snapshot : [];
-      setTables(nextSnapshot);
-      setFloorplan((prev) => ({
-        ...prev,
-        tables: mergeTableStatuses(prev.tables, nextSnapshot),
-      }));
-    });
+    const timer = setTimeout(() => {
+      if (cancelled) return;
 
-    socket.on("table:status:updated", (updatedTable) => {
-      setTables((prev) => {
-        const index = prev.findIndex(
-          (item) => item.tableId === updatedTable.tableId,
-        );
+      socket = createRealtimeSocket(token);
 
-        if (index < 0) {
-          return [...prev, updatedTable];
-        }
-
-        const next = [...prev];
-        next[index] = updatedTable;
-        return next;
+      socket.on("table:statuses:snapshot", (snapshot) => {
+        const nextSnapshot = Array.isArray(snapshot) ? snapshot : [];
+        setTables(nextSnapshot);
+        setFloorplan((prev) => ({
+          ...prev,
+          tables: mergeTableStatuses(prev.tables, nextSnapshot),
+        }));
       });
 
-      setFloorplan((prev) => ({
-        ...prev,
-        tables: (prev.tables || []).map((table) => {
-          if (String(table.tableId) !== String(updatedTable.tableId)) {
-            return table;
+      socket.on("table:status:updated", (updatedTable) => {
+        setTables((prev) => {
+          const index = prev.findIndex(
+            (item) => item.tableId === updatedTable.tableId,
+          );
+
+          if (index < 0) {
+            return [...prev, updatedTable];
           }
 
-          return {
-            ...table,
-            status: updatedTable.status,
-          };
-        }),
-      }));
-    });
+          const next = [...prev];
+          next[index] = updatedTable;
+          return next;
+        });
 
-    socket.on("connect_error", (err) => {
-      setStatusMessage(err?.message || "Realtime connection failed");
-    });
+        setFloorplan((prev) => ({
+          ...prev,
+          tables: (prev.tables || []).map((table) => {
+            if (String(table.tableId) !== String(updatedTable.tableId)) {
+              return table;
+            }
+
+            return {
+              ...table,
+              status: updatedTable.status,
+            };
+          }),
+        }));
+      });
+
+      socket.on("connect_error", (err) => {
+        setStatusMessage(err?.message || "Realtime connection failed");
+      });
+    }, 0);
 
     return () => {
-      socket.disconnect();
+      cancelled = true;
+      clearTimeout(timer);
+      if (socket) {
+        socket.removeAllListeners();
+        socket.disconnect();
+      }
     };
   }, [loadFloorplan, mergeTableStatuses, token]);
 
@@ -310,9 +330,16 @@ function Dashboard() {
                         key={table.tableId}
                         className={`dashboard__table-token dashboard__table-token--${table.shape} dashboard__table-token--${statusClass}`}
                         type="button"
-                        onClick={() =>
-                          handleStatusChange(table.tableId, "occupied")
-                        }
+                        onClick={() => {
+                          const currentIndex = STATUS_OPTIONS.indexOf(
+                            table.status,
+                          );
+                          const nextStatus =
+                            STATUS_OPTIONS[
+                              (currentIndex + 1) % STATUS_OPTIONS.length
+                            ];
+                          handleStatusChange(table.tableId, nextStatus);
+                        }}
                         style={{
                           left: `${table.x}px`,
                           top: `${table.y}px`,
@@ -349,25 +376,24 @@ function Dashboard() {
               {tables.map((table) => (
                 <li className="dashboard__list-item" key={table.tableId}>
                   <div className="dashboard__table-row">
-                    <span>{table.tableId}</span>
-                    <span className="dashboard__table-status">
-                      {table.status}
+                    <span>
+                      {floorplanLabelMap.get(String(table.tableId)) ||
+                        table.tableId}
                     </span>
-                  </div>
-                  <div className="dashboard__table-actions">
-                    {STATUS_OPTIONS.map((status) => (
-                      <button
-                        key={`${table.tableId}-${status}`}
-                        className="dashboard__status-btn"
-                        type="button"
-                        onClick={() =>
-                          handleStatusChange(table.tableId, status)
-                        }
-                        disabled={table.status === status}
-                      >
-                        {status}
-                      </button>
-                    ))}
+                    <select
+                      className="dashboard__status-select"
+                      value={table.status}
+                      onChange={(e) =>
+                        handleStatusChange(table.tableId, e.target.value)
+                      }
+                      aria-label={`Status for ${floorplanLabelMap.get(String(table.tableId)) || table.tableId}`}
+                    >
+                      {STATUS_OPTIONS.map((status) => (
+                        <option key={status} value={status}>
+                          {status}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </li>
               ))}
