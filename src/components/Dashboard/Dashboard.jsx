@@ -16,17 +16,7 @@ import {
 } from "../../utils/table-status.js";
 import { createRealtimeSocket } from "../../utils/realtime.js";
 
-const STATUS_OPTIONS = [
-  "open",
-  "occupied",
-  "reserved",
-  "dirty",
-  "drinks/bread",
-  "course1",
-  "course2",
-  "course3",
-  "dessert",
-];
+import { STATUS_OPTIONS } from "../../constants.js";
 
 function Dashboard() {
   const currentUser = useContext(CurrentUserContext);

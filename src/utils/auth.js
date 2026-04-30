@@ -13,12 +13,11 @@ const processResponse = async (res) => {
   return data;
 };
 
-export const signup = ({ name, email, password, avatar }) => {
+export const signup = ({ name, email, password }) => {
   const payload = {
     name,
     email,
     password,
-    ...(avatar?.trim() ? { avatar: avatar.trim() } : {}),
   };
 
   return fetch(`${BASE_URL}${SIGNUP_PATH}`, {
