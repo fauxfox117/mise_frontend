@@ -16,7 +16,7 @@ import {
 } from "../../utils/table-status.js";
 import { createRealtimeSocket } from "../../utils/realtime.js";
 
-import { STATUS_OPTIONS } from "../../constants.js";
+import { STATUS_OPTIONS } from "../../utils/constants.js";
 
 function Dashboard() {
   const currentUser = useContext(CurrentUserContext);

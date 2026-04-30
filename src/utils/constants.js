@@ -10,4 +10,4 @@ const STATUS_OPTIONS = [
   "dessert",
 ];
 
-export default STATUS_OPTIONS;
+export { STATUS_OPTIONS };
