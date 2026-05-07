@@ -24,10 +24,10 @@ project and some challenges I faced while building it. The beginning of the vide
 
 ## Deployed App
 
-- Frontend: https://mise.saucedchicago.com
+- Frontend: https://fauxfox117.github.io/mise_frontend/#/
 - Backend API: https://mise.saucedchicago.com
 
-The app and API are served from the same production domain.
+The frontend is served from GitHub Pages and connects to the production API domain.
 
 ## Current Frontend Features
 
