@@ -1,0 +1,158 @@
+.container {
+  font-family: "Crimson Text";
+  display: flex;
+  justify-content: space-around;
+  justify-content: center;
+  padding: 0 40px;
+}
+
+.main-text {
+  font-size: 128px;
+}
+
+.main__header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.main__image-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #2eb0e8;
+  width: 1200px;
+  height: 362px;
+  margin-top: 60px;
+  border-radius: 20px;
+}
+
+.main__logo-cloud-title {
+  font-family:
+    DM Sans,
+    sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #485c11;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 24px;
+  text-align: left;
+}
+
+.main__logo-cloud-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 45px 0 45px 0;
+  flex-wrap: wrap;
+  padding: 0 40px;
+}
+
+.main__logo-cloud {
+  width: 154px;
+  height: 84px;
+  overflow: hidden;
+  object-fit: contain;
+  filter: invert(0.9);
+  padding: 0 40px;
+}
+
+@media (max-width: 960px) {
+  .container {
+    padding: 0 24px;
+  }
+
+  .main-text {
+    font-size: clamp(52px, 13vw, 88px);
+  }
+
+  .main__header {
+    width: 100%;
+  }
+
+  .main__image-section {
+    width: 100%;
+    height: auto;
+    min-height: 220px;
+    margin-top: 36px;
+    border-radius: 16px;
+    padding: 12px;
+    overflow: hidden;
+  }
+
+  .main__image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    transform: none;
+  }
+
+  .main__logo-cloud-section {
+    width: 100%;
+    margin: 28px 0;
+    gap: 12px;
+    padding: 0 24px;
+  }
+
+  .main__logo-cloud-title {
+    width: 100%;
+    text-align: center;
+    left: 0;
+    position: static;
+  }
+
+  .main__logo-cloud {
+    width: 124px;
+    height: 64px;
+    padding: 0 12px;
+  }
+}
+
+@media (max-width: 560px) {
+  .main-text {
+    font-size: clamp(42px, 12vw, 58px);
+  }
+
+  .main__logo-cloud-section {
+    margin: 24px 0;
+    gap: 8px;
+  }
+
+  .main__logo-cloud {
+    width: 110px;
+    height: 60px;
+    padding: 0 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .main-text {
+    font-size: clamp(36px, 10vw, 48px);
+  }
+
+  .main__image-section {
+    padding: 8px;
+    margin-top: 24px;
+    min-height: 180px;
+  }
+
+  .main__logo-cloud {
+    width: 100px;
+    height: 56px;
+    padding: 0 8px;
+  }
+
+  .main__logo-cloud-section {
+    margin: 20px 0;
+    gap: 8px;
+    padding: 0 16px;
+  }
+}

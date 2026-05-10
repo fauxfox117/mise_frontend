@@ -1,0 +1,54 @@
+import "./BenefitsSection.css";
+import ScoundrelImage from "../../assets/L1041023-(1).png";
+
+function BenefitsSection({ benefitsRef }) {
+  return (
+    <section className="benefits" ref={benefitsRef}>
+      <div className="benefits__sub-section">
+        <div className="benefits__heading">
+          <p className="benefits__title">Benefits</p>
+          <h2 className="benefits__main-title">
+            We&apos;ve cracked the code
+          </h2>
+          <p className="benefits__blurb">
+            Mise provides real-time updates, automatically, no secondary steps.
+          </p>
+        </div>
+        <img
+          className="benefits__image"
+          src={ScoundrelImage}
+          alt="Scoundrel restaurant"
+        />
+      </div>
+      <ul className="benefits__list">
+        <li className="benefits__item">
+          <h3 className="benefits__item-title">Real-Time Updates</h3>
+          <p className="benefits__item-description">
+            See changes to your tables instantly without needing to refresh.
+          </p>
+        </li>
+        <li className="benefits__item">
+          <h3 className="benefits__item-title">Easy Integration</h3>
+          <p className="benefits__item-description">
+            Connect Mise to your existing databases with minimal setup.
+          </p>
+        </li>
+        <li className="benefits__item">
+          <h3 className="benefits__item-title">User-Friendly Interface</h3>
+          <p className="benefits__item-description">
+            Manage and monitor your tables with an intuitive dashboard.
+          </p>
+        </li>
+        <li className="benefits__item">
+          <h3 className="benefits__item-title">Customizable Alerts</h3>
+          <p className="benefits__item-description">
+            Set up notifications for specific changes or thresholds in your
+            data.
+          </p>
+        </li>
+      </ul>
+    </section>
+  );
+}
+
+export default BenefitsSection;
