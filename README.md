@@ -25,9 +25,10 @@ project and some challenges I faced while building it. The beginning of the vide
 ## Deployed App
 
 - Frontend: https://fauxfox117.github.io/mise_frontend/#/
-- Backend API: https://mise.saucedchicago.com
 
-The frontend is served from GitHub Pages and connects to the production API domain.
+The frontend is served from GitHub Pages.
+
+For project review, use the frontend link above.
 
 ## Current Frontend Features
 
@@ -49,8 +50,8 @@ The frontend is served from GitHub Pages and connects to the production API doma
 
 This repo includes .env.production configured for deployment:
 
-- VITE_API_URL=https://mise.saucedchicago.com
-- VITE_WS_URL=https://mise.saucedchicago.com
+- VITE_API_URL=<set in deployment environment>
+- VITE_WS_URL=<set in deployment environment>
 
 Build commands:
 
@@ -108,4 +109,3 @@ When backend env has DEMO_AUTH=true:
 - Add per-seat water preferences at each table: still, sparkling, tap, or none.
 - Integrate the "With Compliments" concept into the service workflow.
 - Add self-serve onboarding for new restaurants, including secure API key and restaurant GUID setup.
-
