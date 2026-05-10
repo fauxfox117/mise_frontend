@@ -15,7 +15,6 @@ function SignUpModal({
     name: "",
     email: "",
     password: "",
-    avatar: "",
   });
 
   const handleSubmit = (e) => {
@@ -82,18 +81,6 @@ function SignUpModal({
           onChange={handleChange}
           minLength={6}
           required
-        />
-      </label>
-      <label className="modal__label">
-        Avatar URL{" "}
-        <input
-          type="url"
-          className="modal__input"
-          name="avatar"
-          placeholder="https://example.com/avatar.jpg (optional)"
-          autoComplete="url"
-          value={values.avatar}
-          onChange={handleChange}
         />
       </label>
       {error && <p className="modal__error">{error}</p>}

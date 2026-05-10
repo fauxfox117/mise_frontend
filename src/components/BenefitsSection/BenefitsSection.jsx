@@ -7,7 +7,9 @@ function BenefitsSection({ benefitsRef }) {
       <div className="benefits__sub-section">
         <div className="benefits__heading">
           <p className="benefits__title">Benefits</p>
-          <h2 className="benefits__main-title">We've cracked the code</h2>
+          <h2 className="benefits__main-title">
+            We&apos;ve cracked the code
+          </h2>
           <p className="benefits__blurb">
             Mise provides real-time updates, automatically, no secondary steps.
           </p>

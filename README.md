@@ -20,11 +20,15 @@ Current integration direction:
 ## Project Pitch Video
 
 Check out [this video](https://vimeo.com/1184207341?share=copy&fl=sv&fe=ci), where I describe my
-project and some challenges I faced while building it.  The beginning of the video got clipped, sorry about that. 
+project and some challenges I faced while building it. The beginning of the video got clipped, sorry about that.
 
-## Backend Repository
+## Deployed App
 
-[Mise_backend](https://github.com/fauxfox117/mise_backend.git)
+- Frontend: https://fauxfox117.github.io/mise_frontend/#/
+
+The frontend is served from GitHub Pages.
+
+For project review, use the frontend link above.
 
 ## Current Frontend Features
 
@@ -41,6 +45,18 @@ project and some challenges I faced while building it.  The beginning of the vid
 2. Create env file: cp .env.example .env
 3. Ensure backend runs on http://localhost:3001, or update VITE_API_URL
 4. Start frontend: npm run dev
+
+## Production Environment
+
+This repo includes .env.production configured for deployment:
+
+- VITE_API_URL=<set in deployment environment>
+- VITE_WS_URL=<set in deployment environment>
+
+Build commands:
+
+- npm run build
+- npm run preview
 
 ## Demo Login Mode
 
@@ -85,3 +101,11 @@ When backend env has DEMO_AUTH=true:
 - this is a working prototype toward an MVP
 - multi-restaurant support is designed around one profile per restaurant
 - a full production-ready onboarding flow and reservation integration are future phases
+
+### Future Plans
+
+- Add a local insights panel with a foot-traffic score to help teams anticipate busy service windows.
+- Add instant messaging between the host stand and server line to improve communication without leaving the floor view.
+- Add per-seat water preferences at each table: still, sparkling, tap, or none.
+- Integrate the "With Compliments" concept into the service workflow.
+- Add self-serve onboarding for new restaurants, including secure API key and restaurant GUID setup.

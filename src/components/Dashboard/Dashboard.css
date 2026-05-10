@@ -6,7 +6,7 @@
 
 .dashboard__inner {
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto 0 0;
   text-align: left;
 }
 
@@ -293,26 +293,22 @@
   padding: 4px 10px;
 }
 
-.dashboard__table-actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-}
-
-.dashboard__status-btn {
+.dashboard__status-select {
   border: 1px solid #d7d9dc;
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-size: 12px;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
   background: #fff;
+  color: #20262e;
   text-transform: capitalize;
   cursor: pointer;
+  outline: none;
 }
 
-.dashboard__status-btn:disabled {
-  opacity: 0.5;
-  cursor: default;
+.dashboard__status-select:focus {
+  border-color: #2d74ff;
 }
 
 @media (max-width: 960px) {

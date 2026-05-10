@@ -9,7 +9,7 @@ import {
 import "./App.css";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
-import BenefitsSection from "../BenefitsSection/BeneftsSection.jsx";
+import BenefitsSection from "../BenefitsSection/BenefitsSection.jsx";
 import FeaturesSection from "../FeaturesSection/FeaturesSection.jsx";
 import ConnectSection from "../ConnectSection/ConnectSection.jsx";
 import Footer from "../Footer/Footer";
